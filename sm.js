@@ -27,15 +27,18 @@ function getSourceSys(scope, ss) {
 		
 }
 
-function checkValidSubLocation(displayablesublocs, subloc) {
+function checkValidSubLocation(displayablesublocs, subloc, custcode) {
 		for (var i = 0; i < displayablesublocs.length; i++)
 		{
+			        // remove custcode prefix
+			        displayablesublocs[i].replace(custcode, "");
 				if (subloc == displayablesublocs[i])
 				{
 					return "MapMe_container";
 					continue;
 				}	
 		}				
+	        return "MapMe_container_hide";
 	
 }
 
@@ -79,7 +82,7 @@ function primoResult($scope) {
 	if (this.SourceSys == shelfmap.SourceSystem && 		
 		typeof this.availableindex == 'number')
 	{
-        this.MapMe_showhide = checkValidSubLocation(shelfmap.sublocstodisplay, this.sublocation)		 
+        this.MapMe_showhide = checkValidSubLocation(shelfmap.sublocstodisplay, this.sublocation, shelfmap.SMcustcode)		 
 	}
 	else
 	{
