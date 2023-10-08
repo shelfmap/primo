@@ -59,7 +59,7 @@ function primoResult($scope) {
 	this.MapMe_showhide = "MapMe_container_hide";
    
     try {	
-        this.availableindex = getValidDelcategory(scope.result.delivery.deliveryCategory, shelfmap.DelCategory)    	
+        this.availableindex = getValidDelcategory(scope.result.pnx.delivery.delcategory, shelfmap.DelCategory)    	
         } catch(e) {
         this.availableindex = "";
     }
