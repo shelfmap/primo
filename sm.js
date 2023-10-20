@@ -28,10 +28,11 @@ function getSourceSys(scope, ss) {
 }
 
 function checkValidSubLocation(displayablesublocs, subloc, custcode) {
+	        var sublocrep = custcode + "_";
+	        // remove custcode prefix added by Primo pipe
+	        subloc.replace(sublocrep, "");
 		for (var i = 0; i < displayablesublocs.length; i++)
 		{
-			        // remove custcode prefix
-			        displayablesublocs[i].replace(custcode, "");
 				if (subloc == displayablesublocs[i])
 				{
 					return "MapMe_container";
