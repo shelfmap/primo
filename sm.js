@@ -30,7 +30,7 @@ function getSourceSys(scope, ss) {
 function checkValidSubLocation(displayablesublocs, subloc, custcode) {
 	        var sublocrep = custcode + "_";
 	        // remove custcode prefix added by Primo pipe
-	        subloc.replace(sublocrep, "");
+	        subloc = subloc.replace(sublocrep, "");
 		for (var i = 0; i < displayablesublocs.length; i++)
 		{
 				if (subloc == displayablesublocs[i])
