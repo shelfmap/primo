@@ -91,8 +91,15 @@ function primoResult($scope) {
 	}
 	primovid = getprimovid();
 	
+  // create some defaults if they are undefined by specific customers
+  if(typeof ${shelfmap.SMtitle} == 'undefined') {
+    ${shelfmap.SMtitle} = "Show location on ShelfMap."
+  }
+  if(typeof ${shelfmap.SMlogo} == 'undefined') {
+    ${shelfmap.SMlogo} = "sm_logo.png"
+  }
 	  
-  var SMtemplate=`<span class='${this.MapMe_showhide}'><a href='https://app.shelfmap.co.uk/${shelfmap.SMsyspath}/fp.php?icode=${shelfmap.SMcustcode}&id=${this.sysNumber}' target='_blank' class='MapMe_anchor' title='Show on ShelfMap.'><img src='custom/${primovid}/img/sm_logo.png' alt=' Map icon ' /></a></span>`
+  var SMtemplate=`<span class='${this.MapMe_showhide}'><a href='https://app.shelfmap.co.uk/${shelfmap.SMsyspath}/fp.php?icode=${shelfmap.SMcustcode}&id=${this.sysNumber}' target='_blank' class='MapMe_anchor' title='${shelfmap.SMtitle}'><img src='custom/${primovid}/img/${shelfmap.SMlogo}' alt=' ShelfMap icon ' /></a></span>`
   var PMelement = scope.$element;
   PMelement.append(SMtemplate);  
 }
